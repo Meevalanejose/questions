@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:questions/quizz.dart';
+import 'package:quisapp/quizz.dart';
 
 class Splash extends StatefulWidget {
   const Splash({super.key});

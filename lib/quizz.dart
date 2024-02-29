@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:questions/questions1.dart';
+import 'package:quisapp/questions1.dart';
 
 class Question extends StatefulWidget {
   const Question({super.key});
@@ -22,6 +22,7 @@ class _QuestionState extends State<Question> {
     Quiz(qus: 'apple is a fruit',ans: true),
   ];
   int index=0;
+  String result='';
   void next_qus(){
     if(index<=question.length){
 
@@ -30,24 +31,35 @@ class _QuestionState extends State<Question> {
       });
     }
   }
+  void check(bool_ans){
+    print(bool_ans);
+    if(bool_ans==question[index].ans){
+      result='correct ans';
+    }
+    else{
+      result='wrong ans';
+    }
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blue[100],
-      body:
-              Center(
-                child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(question[index].qus),
-                  Container(child: (TextButton( onPressed: () { next_qus();},
-                    child: Text('TRUE',style: TextStyle(color: Colors.teal,
-                      fontSize: 30),),)),),
-                  Container(child: (TextButton( onPressed: () { next_qus();},child: Text('FALSE',style: TextStyle(color: Colors.red,
-                      fontSize: 30),),)),),
-                ],
-              ),
-              )
+        backgroundColor: Colors.blue[100],
+        body:
+        Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(question[index].qus),
+              Container(child: (TextButton( onPressed: () { check(true);next_qus();},
+                child: Text('true',style: TextStyle(color: Colors.teal,
+                    fontSize: 30),),)),),
+              Container(child: (TextButton( onPressed: () { check(false);next_qus();},
+                child: Text('false',style: TextStyle(color: Colors.red,
+                  fontSize: 30),),)),),
+              Text(result),
+            ],
+          ),
+        )
     );
   }
 }

@@ -2,26 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:quisapp/splash.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const MYapp());
 }
-class MyApp extends StatefulWidget {
-  const MyApp({Key? key}) : super(key: key);
+
+class MYapp extends StatefulWidget {
+  const MYapp({super.key});
 
   @override
-  State<MyApp> createState() => _MyAppState();
+  State<MYapp> createState() => _MYappState();
 }
 
-class _MyAppState extends State<MyApp> {
+class _MYappState extends State<MYapp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home:Splash(),
+      home: Splash(
+
+      )  ,
     );
-
-
-
   }
-
 }
-
-
